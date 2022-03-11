@@ -23,7 +23,7 @@ function BecomeMarchant1() {
             email,
             phone,
             password,
-            shopName,
+            shopName, 
             
         }
 
