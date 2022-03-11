@@ -1,12 +1,26 @@
-import React, {useState} from "react";
-import {Link, Navigate, useNavigate} from "react-router-dom"
+import React, {useState, useEffect} from "react";
+import {Link, Navigate, useParams,  useNavigate} from "react-router-dom"
 import "../../bootstrap.css";
 import "./customer.css"
 import axios from "axios"
 
 const MonoConnect = require('@mono.co/connect.js');
 
-function ConnectCustomer() {
+function ConnectCustomer({match}) {
+    const id = useParams().user
+
+    const marchentDetail = async() =>{
+        axios.post('http://192.168.43.27:5000/api/v1/customer/getCustomer', {id}).then((response)=>{
+            console.log(response)
+            if(response.status === 200){
+                setmarchentDetil(response.data)
+            }
+        })
+    }
+    useEffect(() => {
+        marchentDetail()
+    }, [])
+    
     const navigate = useNavigate()
     const [marchentDetil, setmarchentDetil] = useState({
         shopName:'Okoli',
@@ -48,7 +62,7 @@ function ConnectCustomer() {
         console.log(phone)
         event.preventDefault();
 
-        axios.post('http://localhost:5000/api/v1/afriex/checkphone',{phoneNumber:phone}).then((res)=>{
+        axios.post('http://192.168.43.27:5000/api/v1/afriex/checkphone',{phoneNumber:phone}).then((res)=>{
            
           setEmail(res.data.email);        
            if(res.data.email){
