@@ -10,12 +10,12 @@ function ConnectCustomer({match}) {
     const id = useParams().user
 
     const marchentDetail = async() =>{
-        axios.post('http://192.168.43.27:5000/api/v1/customer/getCustomer', {id}).then((response)=>{
+       await axios.post('http://localhost:5000/api/v1/customer/getCustomer', {id}).then((response)=>{
             console.log(response)
             if(response.status === 200){
                 setmarchentDetil(response.data)
             }
-        })
+        }).catch((e)=> console.log(e))
     }
     useEffect(() => {
         marchentDetail()
@@ -34,7 +34,7 @@ function ConnectCustomer({match}) {
         axios.post('http://localhost:5000/api/v1/customer/getMonoAccountDetail', {monoCode: code}).then((response)=>{
             
             if(response.status){
-                navigate('/marchant-signup', {state: { data:response.data, marchent: marchentDetil}} )
+                navigate('/customer-signup', {state: { data:response.data, marchent: marchentDetil}} )
             }
            
         })
@@ -62,7 +62,7 @@ function ConnectCustomer({match}) {
         console.log(phone)
         event.preventDefault();
 
-        axios.post('http://192.168.43.27:5000/api/v1/afriex/checkphone',{phoneNumber:phone}).then((res)=>{
+        axios.post('http://localhost:5000/api/v1/afriex/checkphone',{phoneNumber:phone}).then((res)=>{
            
           setEmail(res.data.email);        
            if(res.data.email){
@@ -76,9 +76,7 @@ function ConnectCustomer({match}) {
 
     }
 
-    const handleInput = (e)=>{
-         setPhone = e.target.value;
-    }
+  
 
 
    return ( 

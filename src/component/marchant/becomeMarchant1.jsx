@@ -1,5 +1,6 @@
 import React from "react";
 import "../../bootstrap.css"
+
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
@@ -31,7 +32,13 @@ function BecomeMarchant1() {
         axios.post('http://localhost:5000/api/v1/customer/createCustomer', model).then((response)=>{
             console.log(response)
             if(response.status === 201){
-                navigate('/success',  )
+                if(response.status === 201){
+                    axios.post('http://localhost:5000/api/v1/afriex/signup', model).then((response) =>{
+                        console.log(response, 'Afreix')
+                    }).catch((e)=> console.log(e))
+                    navigate('/success', )
+                } 
+                
             }
         }).catch((e)=>{
             console.log(e)

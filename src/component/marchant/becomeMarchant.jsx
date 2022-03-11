@@ -22,6 +22,7 @@ function BecomeMarchant() {
     const [email, setemail] = useState('')
     const [phone, setphone] = useState('')
     const [password, setpassword] = useState('')
+    const [userName, setuserName] = useState('')
 
     const handleSubmit = (e) =>{
         // return console.log(location.state)
@@ -29,6 +30,7 @@ function BecomeMarchant() {
         let model = {
             firstName:fName,
             lastName:lName,
+            userName,
             email,
             phone,
             password,
@@ -37,10 +39,13 @@ function BecomeMarchant() {
         }
 
         axios.post('http://localhost:5000/api/v1/customer/createCustomer', model).then((response)=>{
-            console.log(response)
+            // console.log(response, 'insta')
             if(response.status === 201){
-                navigate('/customer/amount', {state:newState } )
-            }
+                axios.post('http://localhost:5000/api/v1/afriex/signup', model).then((response) =>{
+                    console.log(response, 'Afreix')
+                }).catch((e)=> console.log(e))
+                navigate('/success', )
+            } 
         }).catch((e)=>{
             console.log(e)
         })
@@ -56,6 +61,7 @@ function BecomeMarchant() {
              <form onSubmit={(e)=> handleSubmit(e)} className="form-field" >
                  <h2>Afriexpress Pay</h2>
                  <span className="title">{name}</span>
+                 <div className="input-container"><input type="text" required name="userName" value={userName} onChange={(e)=> setuserName(e.target.value)} placeholder="User name"/></div>
                  <div className="input-container"><input type="text" required name="email" value={email} onChange={(e)=> setemail(e.target.value)} placeholder="Email"/></div>
                  <div className="input-container"><input type="text" required name="phone" value={phone} onChange={(e)=> setphone(e.target.value)} placeholder="Phone"/></div>
                  <div className="input-container"><input type="text" required name="password" value={password} onChange={(e)=> setpassword(e.target.value)} placeholder="Password"/></div>

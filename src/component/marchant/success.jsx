@@ -9,7 +9,7 @@ function Success() {
                   <span className="success-check">&#x2713;</span> 
                   <div>
                       <h4 className="py-3">Registered Successfully</h4>
-                      <Link to="/dashboard"><button className="click-button">Click to go to Dashboard</button></Link>
+                      <Link to="/"><button className="click-button">Click to go to Dashboard</button></Link>
                   </div>
            </div>
        </div>

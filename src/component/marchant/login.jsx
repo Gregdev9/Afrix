@@ -23,6 +23,12 @@ function LoginMarchant() {
 
         axios.post('http://localhost:5000/api/v1/customer/login', modal, ).then((response)=>{
             if(response.status === 200) {
+                if(response.status === 201){
+                    axios.post('http://localhost:5000/api/v1/afriex/signup', modal).then((response) =>{
+                        console.log(response, 'Afreix')
+                    }).catch((e)=> console.log(e))
+                    navigate('/success', )
+                } 
                 navigate('/dashboard',  {state: { data: response.data}})
             }
             console.log(response)
