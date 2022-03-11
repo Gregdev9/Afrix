@@ -1,0 +1,66 @@
+.body-flex{
+    display: flex;place-items: center;
+    height: 100vh !important;place-content: center;position: relative;
+}
+.form-field{
+    width: 90%;padding: 0 0.7em;text-align:center;
+}
+.input-container{
+    width: 100%;margin: 2em 0;text-align: center;
+}
+.form-field{
+    width: 90%;padding: 0 0.7em;text-align:center;
+}
+
+.input-container>input{
+    width: 80%; font-size: 17px;font-weight: 600;
+    padding: 0.3em 0.4em;border: 2px solid rgba(50,50,50,1);
+    border-radius: 5px;
+}
+.click-button{
+    padding: .4em 1em;border: none;
+    background: rgb(46, 73, 224);
+    margin: 1em 0;font-size: 16px;font-weight: 700;
+    color: white;border-radius: 5px;
+}
+input::placeholder{
+    color:rgba(50,50,50,0.7)
+}
+input::-ms-input-placeholder{
+    color: rgba(50,50,50,0.7);
+}
+.otp-container>input{
+    width: 50px;padding: 0;text-align: center;
+    height: 40px;margin: 10px;font-size: 17px;
+ }
+ .otp-container>input::-webkit-outer-spin-button,.otp-container>input::-webkit-inner-spin-button{
+     -webkit-appearance: none;margin: 0;
+ }
+ .view-success{
+     width: 50px;height: 50px;background: yellowgreen;display: inline-flex;
+     font-weight: 900;border-radius: 50%;justify-content: center;
+     align-items: center;font-size: 30px;
+ }
+.title{
+    font-size: 16px;font-weight: 600;
+}
+.bold-text{
+    text-align: center;font-size: 16px;font-weight: 700;
+}
+.outline-button{
+    background: transparent;border: 2px solid rgb(46, 73, 224);color:rgb(46, 73, 224)
+}
+.bottom-afrex{
+    position: absolute;bottom: 30px;right: 40px;
+    font-weight: 700;
+}
+
+@media all and (min-width:756px){
+    .form-field{
+        width: 550px;
+    }
+    .middle-col{
+        width: 700px !important;
+    }
+
+}
