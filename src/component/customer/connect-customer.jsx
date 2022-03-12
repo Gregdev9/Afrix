@@ -6,6 +6,8 @@ import axios from "axios"
 
 const MonoConnect = require('@mono.co/connect.js');
 
+
+
 function ConnectCustomer({match}) {
     const id = useParams().user
 
@@ -26,7 +28,7 @@ function ConnectCustomer({match}) {
         shopName:'Okoli',
         marchentId:''
     })
-    let [phone,setPhone]= useState('+2347036459875')
+    let [phone,setPhone]= useState('+23412345678')
     let [email,setEmail]= useState('')
 
 
@@ -59,14 +61,15 @@ function ConnectCustomer({match}) {
 
     const handleSubmit = (event) => {
 
-        console.log(phone)
+        // console.log(phone)
         event.preventDefault();
 
         axios.post('http://localhost:5000/api/v1/afriex/checkphone',{phoneNumber:phone}).then((res)=>{
            
           setEmail(res.data.email);        
            if(res.data.email){
-                navigate('/password', {state:{email: res.data.email}} )
+            //    console.log(res)
+                navigate('/password', {state:{customer: res.data, machent: marchentDetil}} )
            }else{
             monoConnect.open()
            }

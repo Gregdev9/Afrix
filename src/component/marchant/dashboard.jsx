@@ -5,10 +5,10 @@ import "../../bootstrap.css"
 function Dashboard() {
 
     const [payment,setPatment]=useState([
-        {name:"isaac Ameh",amount:'400',item:'ipod'},
-        {name:"jerry azubuike",amount:'850',item:'beams'},
-        {name:"david nyam",amount:'500',item:'charger'},
-        {name:"patrick lame",amount:'1200',item:'cream'},
+        // {name:"isaac Ameh",amount:'400',item:'ipod'},
+        // {name:"jerry azubuike",amount:'850',item:'beams'},
+        // {name:"david nyam",amount:'500',item:'charger'},
+        // {name:"patrick lame",amount:'1200',item:'cream'},
 
     ])
    return ( 

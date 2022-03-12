@@ -1,64 +1,64 @@
 import React from "react";
 import "../../bootstrap.css"
-
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
-function BecomeMarchant1() {
-   const navigate = useNavigate()
+function BecomeCustomer() {
+    const navigate = useNavigate()
 
-    const [firstName, setfirstName] = React.useState('')
-    const [lastName, setlastName] = React.useState('')
-    const [shopName, setshopName] = React.useState('')
-    const [email, setemail] = React.useState('')
+    const location = useLocation()
+    const data = location.state.data
+    const marchent = location.state.marchent
+
+    const newState = location.state
+    
+   const name = data.name
+    let sliceName = name.split(' ');
+
+   let fName = sliceName[0]
+   let lName = sliceName[1]
+
+    const [email, setemail] = useState('')
     const [phone, setphone] = useState('')
     const [password, setpassword] = useState('')
+    const [userName, setuserName] = useState('')
 
     const handleSubmit = (e) =>{
         // return console.log(location.state)
         e.preventDefault();
         let model = {
-            firstName:firstName,
-            lastName:lastName,
+            firstName:fName,
+            lastName:lName,
+            userName,
             email,
             phone,
             password,
-            shopName, 
-            
+            currency:location.state.currency,
+            monoId:location.state._id,
         }
-
 
         axios.post('http://localhost:5000/api/v1/customer/createCustomer', model).then((response)=>{
             console.log(response)
-            if(response.status === 201){
-                if(response.status === 201){
-                    axios.post('http://localhost:5000/api/v1/afriex/signup', model).then((response) =>{
-                        console.log(response, 'Afreix')
-                    }).catch((e)=> console.log(e))
-                    navigate('/success', )
-                } 
-                
-            }
+            navigate('/success', )
+
+          
         }).catch((e)=>{
-            console.log(e)
+            console.log(e.response)
         })
        
     }
 
-    // React.useEffect(() => {
-       
-    // }, [])
+    useEffect(() => {
+        console.log(location)
+    }, [])
     
     return ( 
         <div className="flex body-flex">
              <form onSubmit={(e)=> handleSubmit(e)} className="form-field" >
                  <h2>Afriexpress Pay</h2>
-                 
-                 <div className="input-container"><input type="text" required  value={firstName} onChange={(e)=> setfirstName(e.target.value)} placeholder="First name"/></div>
-                 <div className="input-container"><input type="text" required  value={lastName} onChange={(e)=> setlastName(e.target.value)} placeholder="Last Name"/></div>
-                 <div className="input-container"><input type="text" required  value={shopName} onChange={(e)=> setshopName(e.target.value)} placeholder="Shop Name"/></div>
-
+                 <span className="title">{name}</span>
+                 <div className="input-container"><input type="text" required name="userName" value={userName} onChange={(e)=> setuserName(e.target.value)} placeholder="User name"/></div>
                  <div className="input-container"><input type="text" required name="email" value={email} onChange={(e)=> setemail(e.target.value)} placeholder="Email"/></div>
                  <div className="input-container"><input type="text" required name="phone" value={phone} onChange={(e)=> setphone(e.target.value)} placeholder="Phone"/></div>
                  <div className="input-container"><input type="text" required name="password" value={password} onChange={(e)=> setpassword(e.target.value)} placeholder="Password"/></div>
@@ -68,4 +68,4 @@ function BecomeMarchant1() {
      );
 }
 
-export default BecomeMarchant1;
+export default BecomeCustomer;

@@ -7,7 +7,7 @@ function Qrcode() {
    return ( 
        <div className="flex body-flex">
            <div className="content-container text-center">  
-                  <span ><QRCode  value="http://localhost:3000/customer/home/?merchantId=123456" /></span> 
+                  <span ><QRCode  value="http://localhost:3000/622c767b1efa814a6b7feac7" /></span> 
                   <Link to='/dashboard'><span className="bottom-afrex"><i className="fa fa-chevron-left"></i> back </span></Link>  
            </div>
        </div>

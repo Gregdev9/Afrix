@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import { ApiRouter, BrowserRouter as Router,Routes, Switch ,Route, BrowserRouter, useParams} from "react-router-dom";
 import Home from "./component/marchant/home" ;
+import BecomeCustomer from "./component/customer/becomeCustomer";
 import BecomeMarchant from "./component/marchant/becomeMarchant";
-import BecomeMarchant1 from "./component/marchant/becomeMarchant1";
 import BecomeMarchant2 from "./component/marchant/becomeMarchant2";
 import ConnectMarchant from "./component/marchant/connect-marchant";
 import OTP_connect from "./component/marchant/OTPconnect" 
@@ -22,6 +22,9 @@ import CustomerAmount from './component/customer/customer-amount';
 import CustomerSignupForm from './component/customer/mono';
 import Password from './component/customer/password'
 import LoginMarchant from './component/marchant/login';
+
+import SuccessTransfer from "./component/marchant/transferSuccess"
+import TransferSuccess from "./component/customer/transfer-success"
    
 
    
@@ -42,11 +45,12 @@ ReactDOM.render(
           <Route path="/customer/final-reciept" element={<FinalReciept/>}></Route>
 
           <Route path="/" element={<LoginMarchant/>}></Route>
-          <Route path="/customer-signup" element={<BecomeMarchant/>}></Route>
-          <Route path="/marchant-signup" element={<BecomeMarchant1/>}></Route>
+          <Route path="/customer-signup" element={<BecomeCustomer/>}></Route>
+          <Route path="/marchant-signup" element={<BecomeMarchant/>}></Route>
           <Route path="/connect-marchant" element={<ConnectMarchant/>}></Route>
           <Route path="/marchant-qrcode" element={<Qrcode/>}></Route>
           <Route path="/success" element={<Success/>}></Route>
+          <Route path="/transfer-success" element={<TransferSuccess/>}></Route>
           <Route path="/dashboard" element={<Dashboard/>}></Route>
 
           </Routes>
