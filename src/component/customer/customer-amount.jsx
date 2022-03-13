@@ -13,7 +13,7 @@ function CustomerAmount() {
     const [userAmount, setuserAmount] = useState(0)
     const [amount, setamount] = useState('')
     const location = useLocation().state
-    const [transactionRef, settransactionRef] = useState('fjvbnxzd cbs c ds')
+    const [transactionRef, settransactionRef] = useState('')
     const [description, setdescription] = useState('')
 
 
@@ -43,39 +43,84 @@ function CustomerAmount() {
 
 
     const onPay = () =>{
+        let custormerAmount = parseInt(userAmount[0].balance)
+        let transferAmount = parseInt(amount) 
+        // return console.log()
         // console.log(token)
-        if( userAmount[0].balance < amount){
+        if(custormerAmount < transferAmount){
             console.log('low account balance')
         }else{
 
+
+
+            // var data = JSON.stringify({
+            //     "amount":  parseInt(amount),
+            //     "currency": userAmount[0].symbol,
+            //     "recipient": machent.email,
+            //     "description": description,
+            //     "recipientCountry": "US",
+            //     "recipientCurrency": userAmount[0].symbol,
+            //     "senderAmount":parseInt(amount)
+            //   });
+
+            // var data = JSON.stringify({
+            //     "amount":  parseInt(amount),
+            //     "currency": userAmount[0].symbol,
+            //     "recipient": machent.email,
+            //     "description": description,
+            //     "recipientCountry": "US",
+            //     "recipientCurrency": userAmount[0].symbol,
+            //     "senderAmount":parseInt(amount)
+            //   });
+            //   var config = {
+            //     method: 'post',
+            //     url: 'https://staging.afx-server.com/transfer-fiat',
+            //     headers: { 
+            //       'Authorization': 'Bearer' + ' ' + token, 
+            //       'Content-Type': 'application/json'
+            //     },
+            //     data : data
+            //   };
+
+
+            // //   return console.log(config)
+              
+            //   axios(config)
+            //   .then(function (response) {
+            //     console.log(JSON.stringify(response.data));
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error.response);
+            //   });
+
             let modal = {
-                amount: amount,
-                currency: userAmount[0].symbol,
-                recipient: machent.email,
-                description: description,
-                recipientCountry: 'ng',
-                recipientCurrency: userAmount[0].symbol,
-                senderAmount: amount
+                "amount": parseInt(amount),
+                "currency": userAmount[0].symbol,
+                "recipient": machent.email,
+                "description": description,
+                "recipientCountry": 'ng',
+                "recipientCurrency": userAmount[0].symbol,
+                "senderAmount": parseInt(amount)
               }
 
             // return console.log(modal)
 
               
-            axios.post('http://localhost:5000/api/v1/afriex/transfer',modal,
+            axios.post('https://staging.afx-server.com/transfer-fiat',modal,
             {
                 headers: {
-                    token
+                  Authorization: 'Bearer ' + token,
                 }
-              },
+              }
             
             ).then((response)=>{
 
-                axios.post('http://localhost:5000/api/v1/afriex/transfer',).then(()=>{
-                    navigate('/transfer-success', {state:{ customer, machent, }} )
-                    console.log(response)
-                })
-               
-               
+           
+               console.log(response.data.reference)
+               settransactionRef(response.data.reference)
+               if(transactionRef){
+                addTransactionTodb()
+               }
            }).catch((e) => console.log(e.response))
         }
     }
@@ -106,7 +151,7 @@ function CustomerAmount() {
             description:description,
         }
 
-        console.log(modelCustormer)
+        // console.log(modelCustormer)
         axios.post('http://localhost:5000/api/v1/customer/saveMerchantTransaction', modelMerchant ).then((response)=>{
             axios.post('http://localhost:5000/api/v1/customer/saveCustomerTransaction', modelCustormer ).then((response)=>{
             
@@ -142,7 +187,7 @@ function CustomerAmount() {
                  <div className="input-container"><input type="number" value={amount} onChange={(e)=> setamount(e.target.value)} required name="amount" placeholder="Pleace amount"/></div>
                  <div className="input-container"><input type="text" value={description} onChange={(e)=> setdescription(e.target.value)} required name="" placeholder="Description"/></div>
                 {/* <button className="click-button" onClick={()=> onPay()}style={{width:"200px"}}>Pay</button> */}
-                <button className="click-button" onClick={()=> addTransactionTodb()}style={{width:"200px"}}>Pay</button>
+                <button className="click-button" onClick={()=> onPay()}style={{width:"200px"}}>Pay</button>
              </div>
            
              </div>

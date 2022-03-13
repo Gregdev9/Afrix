@@ -24,6 +24,23 @@ function BecomeCustomer() {
     const [password, setpassword] = useState('')
     const [userName, setuserName] = useState('')
 
+    const newValue = () =>{
+        let number ;
+
+        if(phone.length === 11 ){
+            let p = phone.replace('0', '')
+
+            number = '+234' + p
+            // console.log(phone)
+        }
+
+
+
+        return number;
+
+        
+    }
+
     const handleSubmit = (e) =>{
         // return console.log(location.state)
         e.preventDefault();
@@ -32,7 +49,7 @@ function BecomeCustomer() {
             lastName:lName,
             userName,
             email,
-            phone,
+            phone: newValue(),
             password,
             currency:location.state.currency,
             monoId:location.state._id,
@@ -60,7 +77,7 @@ function BecomeCustomer() {
                  <span className="title">{name}</span>
                  <div className="input-container"><input type="text" required name="userName" value={userName} onChange={(e)=> setuserName(e.target.value)} placeholder="User name"/></div>
                  <div className="input-container"><input type="text" required name="email" value={email} onChange={(e)=> setemail(e.target.value)} placeholder="Email"/></div>
-                 <div className="input-container"><input type="text" required name="phone" value={phone} onChange={(e)=> setphone(e.target.value)} placeholder="Phone"/></div>
+                 <div className="input-container"><input type="text" required name="phone" value={phone} minLength="11" maxlength="11" onChange={(e)=> setphone(e.target.value)} placeholder="Phone"/></div>
                  <div className="input-container"><input type="text" required name="password" value={password} onChange={(e)=> setpassword(e.target.value)} placeholder="Password"/></div>
                 <button className="click-button" style={{width:"200px"}}>Next</button>
              </form>

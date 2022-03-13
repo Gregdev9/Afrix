@@ -25,16 +25,16 @@ function ConnectCustomer({match}) {
     
     const navigate = useNavigate()
     const [marchentDetil, setmarchentDetil] = useState({
-        shopName:'Okoli',
+        shopName:'',
         marchentId:''
     })
-    let [phone,setPhone]= useState('+23412345678')
+    let [phone,setPhone]= useState('+2347036459875')
     let [email,setEmail]= useState('')
 
 
     const handleConnectedAccount = (code) => {
         axios.post('http://localhost:5000/api/v1/customer/getMonoAccountDetail', {monoCode: code}).then((response)=>{
-            
+            // return console.log(response)
             if(response.status){
                 navigate('/customer-signup', {state: { data:response.data, marchent: marchentDetil}} )
             }
