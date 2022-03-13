@@ -22,8 +22,11 @@ function LoginMarchant() {
         event.preventDefault();
 
         axios.post('http://localhost:5000/api/v1/customer/login', modal, ).then((response)=>{
-            console.log(response)
-            navigate('/dashboard', {state:{ response }})
+            if(response.status === 200){
+                let data = response.data.InstantPay
+                navigate('/dashboard', {state:{ data }})
+            }
+           
         }).catch((e) => console.log(e))
     }
     const handleInput = (event) => {

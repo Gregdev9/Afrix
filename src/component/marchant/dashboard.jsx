@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import {Link} from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import {Link, useLocation} from "react-router-dom"
 import "../../bootstrap.css"
 
 function Dashboard() {
+    const location = useLocation().state.data
 
+    const merchantId = location._id
     const [payment,setPatment]=useState([
         // {name:"isaac Ameh",amount:'400',item:'ipod'},
         // {name:"jerry azubuike",amount:'850',item:'beams'},
@@ -11,6 +13,11 @@ function Dashboard() {
         // {name:"patrick lame",amount:'1200',item:'cream'},
 
     ])
+
+    useEffect(() => {
+     console.log(merchantId)
+    }, [])
+    
    return ( 
        <div className="flex">
             <div className="flex py-3 px-2" style={{width:"100%"}}>

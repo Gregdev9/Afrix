@@ -21,9 +21,12 @@ function TransferSuccess() {
        <div className="flex body-flex">
              <form className="form-field" method="" action="">
                  <h2>Afriex Express</h2>
-                {
+               {
+                 location && (
+                   <>
+                       {
                   machent && (
-                    <span className="title">You are paid {machent.shopName} </span>
+                    <span className="title">You have paid {machent.shopName} shop </span>
                   )
                 }
                <div className="py-5">
@@ -31,8 +34,11 @@ function TransferSuccess() {
                  <span className="bold-text">Success</span>
                  </div>
                  <div className="bold-text" style={{textDecoration:'underline'}}>
-                  <Link to="/customer/overview-reciept"> Click here to view your reciept</Link>
+                  <Link to="/customer/overview-reciept" state={{location}}> Click here to view your reciept</Link>
                  </div>
+                   </>
+                 )
+               }
               
              </form>
            

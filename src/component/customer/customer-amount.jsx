@@ -118,9 +118,9 @@ function CustomerAmount() {
            
                console.log(response.data.reference)
                settransactionRef(response.data.reference)
-               if(transactionRef){
+               setTimeout(()=>{
                 addTransactionTodb()
-               }
+               },1000)
            }).catch((e) => console.log(e.response))
         }
     }
@@ -154,9 +154,19 @@ function CustomerAmount() {
         // console.log(modelCustormer)
         axios.post('http://localhost:5000/api/v1/customer/saveMerchantTransaction', modelMerchant ).then((response)=>{
             axios.post('http://localhost:5000/api/v1/customer/saveCustomerTransaction', modelCustormer ).then((response)=>{
-            
-            
-            
+                let customer = location.customer.Afriex.user
+                let instantPay = location.customer.InstantPay
+                let machent = location.machent
+                let modal = {
+                    "amount": parseInt(amount),
+                    "currency": userAmount[0].symbol,
+                    "recipient": machent.email,
+                    "description": description,
+                    "recipientCountry": 'ng',
+                    "recipientCurrency": userAmount[0].symbol,
+                    "senderAmount": parseInt(amount)
+                  }
+                navigate('/transfer-success', {state:{ customer, instantPay, machent, transactionDetail:modal,  }})
             }).catch((e) => console.log(e))
             
             
