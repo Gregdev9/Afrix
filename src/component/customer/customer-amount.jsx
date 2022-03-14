@@ -30,7 +30,7 @@ function CustomerAmount() {
     let token = customer.Afriex.accessToken
 
     const getCustomerAmount = async() =>{
-          axios.get('http://localhost:5000/api/v1/afriex/wallet', 
+          axios.get('https://instantpay.herokuapp.com/api/v1/afriex/wallet', 
          {
             headers: {
                 token
@@ -159,8 +159,8 @@ function CustomerAmount() {
         }
 
         // console.log(modelCustormer)
-        axios.post('http://localhost:5000/api/v1/customer/saveMerchantTransaction', modelMerchant ).then((response)=>{
-            axios.post('http://localhost:5000/api/v1/customer/saveCustomerTransaction', modelCustormer ).then((response)=>{
+        axios.post('https://instantpay.herokuapp.com/api/v1/customer/saveMerchantTransaction', modelMerchant ).then((response)=>{
+            axios.post('https://instantpay.herokuapp.com/api/v1/customer/saveCustomerTransaction', modelCustormer ).then((response)=>{
                 setloading(false)
                 let customer = location.customer.Afriex.user
                 let instantPay = location.customer.InstantPay

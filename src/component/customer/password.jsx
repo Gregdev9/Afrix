@@ -25,7 +25,7 @@ function Password() {
     const handleSubmit = (event) => {
         event.preventDefault();
        setloading(true)
-        axios.post('http://localhost:5000/api/v1/customer/login',
+        axios.post('https://instantpay.herokuapp.com/api/v1/customer/login',
         {
             email:customer.email,
             password:password

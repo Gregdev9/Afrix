@@ -31,7 +31,7 @@ function LoginMarchant() {
         }
         event.preventDefault();
 
-        axios.post(`http://localhost:5000/api/v1/customer/merchant-login`, modal, ).then((response)=>{
+        axios.post(`https://instantpay.herokuapp.com/api/v1/customer/merchant-login`, modal, ).then((response)=>{
             if(response.status === 200){
                 setloading(true)
                 let data = response.data

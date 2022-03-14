@@ -22,7 +22,7 @@ function Dashboard() {
 
     useEffect(() => {
         console.log(newList)
-     axios.post('http://localhost:5000/api/v1/customer/get-merchent-transaction', {id:merchantId} ).then((response)=>{
+     axios.post('https://instantpay.herokuapp.com/api/v1/customer/get-merchent-transaction', {id:merchantId} ).then((response)=>{
          setloading(false)
          settransactions(response.data)
         //  console.log(response.data)

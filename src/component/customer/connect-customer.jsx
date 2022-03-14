@@ -18,7 +18,7 @@ function ConnectCustomer({match}) {
     const id = useParams().user
 
     const marchentDetail = async() =>{
-       await axios.post('http://localhost:5000/api/v1/customer/getCustomer', {id}).then((response)=>{
+       await axios.post('https://instantpay.herokuapp.com/api/v1/customer/getCustomer', {id}).then((response)=>{
             console.log(response)
             if(response.status === 200){
                 setmarchentDetil(response.data)
@@ -40,7 +40,7 @@ function ConnectCustomer({match}) {
 
 
     const handleConnectedAccount = (code) => {
-        axios.post('http://localhost:5000/api/v1/customer/getMonoAccountDetail', {monoCode: code}).then((response)=>{
+        axios.post('https://instantpay.herokuapp.com/api/v1/customer/getMonoAccountDetail', {monoCode: code}).then((response)=>{
             // return console.log(response)
             if(response.status){
                 navigate('/customer-signup', {state: { data:response.data, marchent: marchentDetil}} )
@@ -71,7 +71,7 @@ function ConnectCustomer({match}) {
         // console.log(phone)
         event.preventDefault();
 
-        axios.post('http://localhost:5000/api/v1/afriex/checkphone',{phoneNumber:phone}).then((res)=>{
+        axios.post('https://instantpay.herokuapp.com/api/v1/afriex/checkphone',{phoneNumber:phone}).then((res)=>{
            
           setEmail(res.data.email);        
            if(res.data.email){

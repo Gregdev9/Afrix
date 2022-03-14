@@ -28,7 +28,7 @@ function BecomeMarchant2() {
     const handleSubmit = (e) => {
         if(password === confirmPassWord){
             console.log(newData)
-            axios.post('http://localhost:5000/api/v1/afriex/signup', newData)
+            axios.post('https://instantpay.herokuapp.com/api/v1/afriex/signup', newData)
         }
 
     }

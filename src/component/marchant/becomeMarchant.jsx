@@ -52,7 +52,7 @@ function BecomeMarchant() {
         // return console.log(model)
 
 
-        axios.post('http://localhost:5000/api/v1/customer/createCustomer', model).then((response)=>{
+        axios.post('https://instantpay.herokuapp.com/api/v1/customer/createCustomer', model).then((response)=>{
             console.log(response)
             navigate('/success', )
           
