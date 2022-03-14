@@ -23,7 +23,7 @@ function Overview() {
                  <h2>Afriex Express</h2>
                  <span className="title">You paid {merchant.shopName} shop</span>
                <div className="py-5">
-                <input  className="click-button outline-button text-center" value={transactionDetail.amount}></input><br></br>
+                <input  className="click-button outline-button text-center" value={transactionDetail.currency + ' ' + transactionDetail.amount }></input><br></br>
                 <button type="submit" className="click-button ">Download Reciept</button>
                  </div>
               

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// require('dotenv').config()
 import reportWebVitals from './reportWebVitals';
 import { ApiRouter, BrowserRouter as Router,Routes, Switch ,Route, BrowserRouter, useParams} from "react-router-dom";
 import Home from "./component/marchant/home" ;
@@ -21,6 +22,7 @@ import Qrcode from './component/marchant/qr-code';
 import CustomerAmount from './component/customer/customer-amount';
 import CustomerSignupForm from './component/customer/mono';
 import Password from './component/customer/password'
+import CreateShop from './component/customer/create-shop'
 import LoginMarchant from './component/marchant/login';
 
 import SuccessTransfer from "./component/marchant/transferSuccess"
@@ -38,6 +40,7 @@ ReactDOM.render(
           <Route path="/mono"  element={<CustomerSignupForm/>}></Route>
           <Route path="/otp" element={<OTP_Customer/>}></Route>
           <Route path="/password" element={<Password/>}></Route>
+          <Route path="/Create-shop" element={<CreateShop/>}></Route>
 
           <Route path="/customer/amount" element={<CustomerAmount/>}></Route>
           <Route path="/customer/reciept" element={<Reciept/>}></Route>

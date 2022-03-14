@@ -4,11 +4,17 @@ import "../../bootstrap.css";
 import "./customer.css"
 import axios from "axios"
 
+
+
+import Loader from "../Loader"
+
+
 const MonoConnect = require('@mono.co/connect.js');
 
 
 
 function ConnectCustomer({match}) {
+    const [loading, setloading] = useState(true)
     const id = useParams().user
 
     const marchentDetail = async() =>{
@@ -16,6 +22,7 @@ function ConnectCustomer({match}) {
             console.log(response)
             if(response.status === 200){
                 setmarchentDetil(response.data)
+                setloading(false)
             }
         }).catch((e)=> console.log(e))
     }
@@ -60,7 +67,7 @@ function ConnectCustomer({match}) {
 
 
     const handleSubmit = (event) => {
-
+        setloading(true)
         // console.log(phone)
         event.preventDefault();
 
@@ -71,11 +78,13 @@ function ConnectCustomer({match}) {
             //    console.log(res)
                 navigate('/password', {state:{customer: res.data, machent: marchentDetil}} )
            }else{
+               setloading(false)
             monoConnect.open()
            }
         }).catch((err) => {
+            setloading(false)
             console.log(err);
-        })
+        }).finally(()=> setloading(false))
 
     }
 
@@ -84,6 +93,7 @@ function ConnectCustomer({match}) {
 
    return ( 
        <div className="flex body-flex">
+                <Loader isLoading={loading}  />
              <form className="form-field" onSubmit={handleSubmit}>
                  <h2>Afriex Express</h2>
                  <span className="title">You are paying to {marchentDetil.shopName} shop</span>

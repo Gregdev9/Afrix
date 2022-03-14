@@ -64,3 +64,52 @@ input::-ms-input-placeholder{
     }
 
 }
+
+.loader{
+    background-color: #fff;
+    width:100vw;
+    height :100vh;
+   position:fixed;
+   top:0;
+   left: 0;
+   display:flex;
+   justify-content:center;
+   align-items: center;
+   z-index: 200;
+  
+   
+}
+.alert-modal{
+    animation-name: modal-alert;
+    background-color: rgba(0, 0, 0, 0.553);
+    width:100vw;
+    height :100vh;
+   position:fixed;
+   top:0;
+   left: 0;
+   display:flex;
+   justify-content:center;
+   align-items: center;
+   z-index: 200;
+   animation-duration: 1000;
+   animation-direction: linear;
+  
+   
+}
+
+.alert-card{
+    border-radius: 10;
+    background-color: white;
+    width: 50%;
+    height: 30%;
+}
+
+@keyframes modal-alert {
+    from{
+        transform: scale(5)
+    }
+
+    to{
+        transform: scale(1)
+    }
+}

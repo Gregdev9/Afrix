@@ -6,8 +6,10 @@ import "./customer.css"
 import axios from "axios"
 import { data } from "autoprefixer";
 
-function Password() {
+import Loader from "../Loader"
 
+function Password() {
+    const [loading, setloading] = useState(false)
     const location = useLocation();
 
     let navigate = useNavigate()
@@ -20,8 +22,9 @@ function Password() {
 
 
 
-    const handleSubmit = () => {
-       
+    const handleSubmit = (event) => {
+        event.preventDefault();
+       setloading(true)
         axios.post('http://localhost:5000/api/v1/customer/login',
         {
             email:customer.email,
@@ -31,6 +34,7 @@ function Password() {
             // console.log(response)
             if(response.status === 200){
                 let customer = response.data
+                setloading(false)
                 navigate('/customer/amount', {state:{customer, machent, }} )
                 
             }
@@ -38,8 +42,9 @@ function Password() {
             
            
         }).catch((err) => {
+            setloading(false)
             console.log(err.response);
-        })
+        }).finally(()=> setloading(false))
 
     }
 
@@ -48,13 +53,13 @@ function Password() {
 
    return ( 
        <div className="flex body-flex">
-           
-             <div className="form-field" >
+            <Loader isLoading={loading}  />
+             <form onSubmit={handleSubmit} className="form-field" >
                  <h2>Afriex Express</h2>
                  <span className="title"> {customer.email} please enter your password</span>
                  <div className="input-container"><input type="text" handleInput required name="password" value={password} onChange={(e) => setPassword(e.target.value)} /></div>
-                 <button className="click-button" onClick={()=> handleSubmit()} style={{width:"200px"}}>proceed</button>
-             </div>
+                 <button className="click-button"  style={{width:"200px"}}>Proceed</button>
+             </form>
            
              </div>
     );
