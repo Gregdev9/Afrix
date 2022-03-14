@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {Link, useLocation} from "react-router-dom"
-import "../../bootstrap.css"
+// import "../../bootstrap.css"
 import axios from "axios"
 import Loader from "../Loader"
-import dateFormat, { masks } from "dateformat";
+import dateFormat from "dateformat";
 
 
 

@@ -1,5 +1,5 @@
-import { any } from 'prop-types';
-import React, { Component, useState } from 'react';
+// import { any } from 'prop-types';
+import React, {  useState } from 'react';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 const MonoConnect = require('@mono.co/connect.js');

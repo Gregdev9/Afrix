@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import {Link, Navigate, useParams,  useNavigate} from "react-router-dom"
-import "../../bootstrap.css";
+import { useParams,  useNavigate} from "react-router-dom"
+// import "../../bootstrap.css";
 import "./customer.css"
 import axios from "axios"
 

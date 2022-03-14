@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import {Link, useNavigate, useLocation} from "react-router-dom"
+import {useNavigate, useLocation} from "react-router-dom"
 
-import "../../bootstrap.css";
+// import "../../bootstrap.css";
 import "./customer.css"
 import axios from "axios"
-import { data } from "autoprefixer";
+// import { data } from "autoprefixer";
 
 import Loader from "../Loader"
 

@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Navigate, useLocation, Link, useNavigate} from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 import "../../bootstrap.css";
 import "./customer.css"

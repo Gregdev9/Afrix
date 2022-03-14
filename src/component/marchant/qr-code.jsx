@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {Link, useLocation} from "react-router-dom"
-import "../../bootstrap.css"
+// import "../../bootstrap.css"
 var QRCode = require('qrcode.react');
 
 function Qrcode() {

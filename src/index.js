@@ -1,23 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // require('dotenv').config()
+import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
-import { ApiRouter, BrowserRouter as Router,Routes, Switch ,Route, BrowserRouter, useParams} from "react-router-dom";
-import Home from "./component/marchant/home" ;
+import {  Routes, Route, BrowserRouter, } from "react-router-dom";
+// import Home from "./component/marchant/home" ;
 import BecomeCustomer from "./component/customer/becomeCustomer";
 import BecomeMarchant from "./component/marchant/becomeMarchant";
-import BecomeMarchant2 from "./component/marchant/becomeMarchant2";
+// import BecomeMarchant2 from "./component/marchant/becomeMarchant2";
 import ConnectMarchant from "./component/marchant/connect-marchant";
-import OTP_connect from "./component/marchant/OTPconnect" 
+// import OTP_connect from "./component/marchant/OTPconnect" 
 import Success from "./component/marchant/success";
 import  Dashboard from "./component/marchant/dashboard"  ;
-import ScannerPage from "./component/marchant/scanner" ;
+// import ScannerPage from "./component/marchant/scanner" ;
 import ConnectCustomer from "./component/customer/connect-customer" 
-import OTP_Customer from "./component/customer/OTPconnect";
+import OTPCustomer from "./component/customer/OTPconnect";
 import Reciept from "./component/customer/reciept-success";
 import Overview from "./component/customer/overview";
 import FinalReciept from "./component/customer/final-reciept"
-import ScannerCustomer from "./component/customer/scanner"
+// import ScannerCustomer from "./component/customer/scanner"
 import Qrcode from './component/marchant/qr-code';
 import CustomerAmount from './component/customer/customer-amount';
 import CustomerSignupForm from './component/customer/mono';
@@ -25,7 +26,7 @@ import Password from './component/customer/password'
 import CreateShop from './component/customer/create-shop'
 import LoginMarchant from './component/marchant/login';
 
-import SuccessTransfer from "./component/marchant/transferSuccess"
+// import SuccessTransfer from "./component/marchant/transferSuccess"
 import TransferSuccess from "./component/customer/transfer-success"
    
 
@@ -38,7 +39,7 @@ ReactDOM.render(
     
           <Route path="/customer/:user"  element={<ConnectCustomer/>}></Route>
           <Route path="/mono"  element={<CustomerSignupForm/>}></Route>
-          <Route path="/otp" element={<OTP_Customer/>}></Route>
+          <Route path="/otp" element={<OTPCustomer/>}></Route>
           <Route path="/password" element={<Password/>}></Route>
           <Route path="/Create-shop" element={<CreateShop/>}></Route>
 

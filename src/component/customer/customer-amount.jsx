@@ -1,10 +1,10 @@
 import React from "react";
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../../bootstrap.css";
 import "./customer.css"
-import { Navigate, useLocation, useNavigate} from "react-router-dom"
+import {  useLocation, useNavigate} from "react-router-dom"
 import Loader from "../Loader"
 
 

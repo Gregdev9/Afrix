@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
-import {Link, useNavigate, useLocation} from "react-router-dom"
+import { useNavigate, useLocation} from "react-router-dom"
 
-import "../../bootstrap.css";
 import "./customer.css"
-import axios from "axios"
-import { data } from "autoprefixer";
+// import axios from "axios"
+// import { data } from "autoprefixer";
 
 import Loader from "../Loader"
 
@@ -25,7 +24,7 @@ function CreateShop() {
 
 
    return ( 
-       <div className="flex body-flex">
+       <div className="flex ">
             <Loader isLoading={loading}  />
              <form  className="form-field" >
                  <h2>Afriex Express</h2>

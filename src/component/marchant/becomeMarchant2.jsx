@@ -1,5 +1,5 @@
 import React from "react";
-import "../../bootstrap.css"
+// import "../../bootstrap.css"
 import { useLocation} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";

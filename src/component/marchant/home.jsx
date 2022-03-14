@@ -1,10 +1,10 @@
  import React from "react";
  import {Link} from "react-router-dom"
- import "../../bootstrap.css"
+//  import "../../bootstrap.css"
 
 function Home() {
     return ( 
-        <div className="flex body-flex">
+        <div className="flex ">
             <div className="content-container text-center">
                 <h1>Welcome to Afriexpress Pay</h1>
                 <Link to="/become-marchant"> <button className="click-button">Become a marchant</button></Link>

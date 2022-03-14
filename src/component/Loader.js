@@ -1,5 +1,5 @@
 import React from 'react'
-import {BounceLoader,BarLoader,ClimbingBoxLoader, RingLoader, CircleLoader} from 'react-spinners'
+import {BounceLoader} from 'react-spinners'
 import './customer/customer.css'
 
 

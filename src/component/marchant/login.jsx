@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import "../../bootstrap.css"
+// import "../../bootstrap.css"
 
 import axios from "axios"
-import { useNavigate, Link } from "react-router";
+import { useNavigate,  } from "react-router";
 
 
 import Loader from "../Loader"
-import CAlert from "../CAlert"
+// import CAlert from "../CAlert"
 
 import Swal from 'sweetalert2'
 
@@ -84,9 +84,9 @@ function LoginMarchant() {
         })
         .finally(()=> setloading(false))
     }
-    const handleInput = (event) => {
+    // const handleInput = (event) => {
 
-    }
+    // }
 
     return ( 
         <div className=" body-flex">

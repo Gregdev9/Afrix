@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import {Link} from "react-router-dom"
-import "../../bootstrap.css";
+import React from "react";
+// import {Link} from "react-router-dom"
+// import "../../bootstrap.css";
 import "./customer.css"
-const MonoConnect = require('@mono.co/connect.js');
+// const MonoConnect = require('@mono.co/connect.js');
 
-function OTP_Customer() {
+function OTPCustomer() {
      
-    const otppin=[...document.querySelectorAll(".otp-container>input")]
-      useEffect(()=>{
-        //code to focus first child onload
-        //   otppin.forEach(element => {
-        //       if(otppin.indexOf(element)==0){
-        //           element.focus()
-        //       }
-        //   });
+    // const otppin=[...document.querySelectorAll(".otp-container>input")]
+    //   useEffect(()=>{
+    //     //code to focus first child onload
+    //     //   otppin.forEach(element => {
+    //     //       if(otppin.indexOf(element)==0){
+    //     //           element.focus()
+    //     //       }
+    //     //   });
 
       
-    },[])
+    // },[])
           //code to shift after change of input
     const keyDownFunc=(e)=>{
         //       setTimeout(()=>{
@@ -70,4 +70,4 @@ function OTP_Customer() {
     );
 }
 
-export default OTP_Customer;
+export default OTPCustomer;

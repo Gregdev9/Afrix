@@ -1,12 +1,12 @@
 import React from "react";
-import {useState, useEffect} from "react"
-import { Navigate, useLocation, Link, useNavigate} from "react-router-dom"
-import "../../bootstrap.css";
+import { useEffect} from "react"
+import {  useLocation, Link} from "react-router-dom"
+// import "../../bootstrap.css";
 import "./customer.css"
 
 function TransferSuccess() {
   
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const location = useLocation().state
 
   const machent = location.machent

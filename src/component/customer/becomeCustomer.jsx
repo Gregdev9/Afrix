@@ -1,5 +1,5 @@
 import React from "react";
-import "../../bootstrap.css"
+// import "../../bootstrap.css"
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
@@ -9,9 +9,9 @@ function BecomeCustomer() {
 
     const location = useLocation()
     const data = location.state.data
-    const marchent = location.state.marchent
+    // const marchent = location.state.marchent
 
-    const newState = location.state
+    // const newState = location.state
     
    const name = data.name
     let sliceName = name.split(' ');

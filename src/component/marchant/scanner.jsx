@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React  from "react";
 import {Link} from "react-router-dom"
-import "../../bootstrap.css"
-import Scanner from "react-webcam-qr-scanner";
+// import "../../bootstrap.css"
+// import Scanner from "react-webcam-qr-scanner";
 import QrReader from "react-qr-scanner"
 
 function ScannerPage() {
-    const handledecode=(result)=>{
-        console.log(result)
-    }
-    const handleScannerLoad=(mode)=>{
-         console.log(mode)
-    }
+    // const handledecode=(result)=>{
+    //     console.log(result)
+    // }
+    // const handleScannerLoad=(mode)=>{
+    //      console.log(mode)
+    // }
     const Error=(err)=>{
         console.log(err)
     }

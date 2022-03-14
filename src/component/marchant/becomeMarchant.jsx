@@ -1,8 +1,8 @@
 import React from "react";
-import "../../bootstrap.css"
+// import "../../bootstrap.css"
 
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useState,  } from "react";
+import { useNavigate,  } from "react-router-dom";
 import axios from "axios";
 
 function BecomeMarchant() {
